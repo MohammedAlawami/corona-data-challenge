@@ -7,20 +7,36 @@
 #    http://shiny.rstudio.com/
 #
 
-library(shiny)
-library(tidyverse)
+library(shiny, warn.conflicts = TRUE)
+library(tidyverse, warn.conflicts = TRUE)
+library(magrittr, warn.conflicts = TRUE)
+library(leaflet, warn.conflicts = TRUE)
 
-total_confirmed <- read_csv('https://covid.ourworldindata.org/data/total_cases.csv')
-total_deaths <- read_csv('https://covid.ourworldindata.org/data/total_deaths.csv')
-new_confirmed <- read_csv('https://covid.ourworldindata.org/data/new_cases.csv')
-new_deaths <- read_csv('https://covid.ourworldindata.org/data/new_deaths.csv')
-full_dataset <- read_csv('https://covid.ourworldindata.org/data/full_data.csv')
+total_confirmed <- read_csv(
+    'https://covid.ourworldindata.org/data/total_cases.csv',
+    col_types = paste0("D", strrep("i", 161))
+)
+total_deaths <- read_csv(
+    'https://covid.ourworldindata.org/data/total_deaths.csv',
+    col_types = paste0("D", strrep("i", 161))
+)
+new_confirmed <- read_csv(
+    'https://covid.ourworldindata.org/data/new_cases.csv',
+    col_types = paste0("D", strrep("i", 161))
+)
+new_deaths <- read_csv(
+    'https://covid.ourworldindata.org/data/new_deaths.csv',
+    col_types = paste0("D", strrep("i", 161))
+    )
+full_dataset <- read_csv(
+    'https://covid.ourworldindata.org/data/full_data.csv',
+    col_types = "Dciiii"
+    )
 
 countries <- names(total_confirmed)[-1]
 
 m <- leaflet() %>%
-    addTiles()# %>%  # Add default OpenStreetMap map tiles
-    # addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
+    addTiles()
 
 total_confirmed %<>% 
     gather(key = 'country',
