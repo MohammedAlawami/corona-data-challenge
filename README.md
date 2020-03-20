@@ -1,1 +1,1 @@
-# corona-data-challenge
+# Corona Data Challenge

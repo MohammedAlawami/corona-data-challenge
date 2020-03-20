@@ -1,0 +1,12 @@
+name: Coronavirus
+title: Coronavirus
+username:
+account: alawami
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1960977
+bundleId: 2900894
+url: https://alawami.shinyapps.io/Coronavirus/
+when: 1584684112.74247
+asMultiple: FALSE
+asStatic: FALSE
