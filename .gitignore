@@ -130,6 +130,5 @@ dmypy.json
 
 *.csv
 .DS_Store
-coronavirus_analysis2.ipynb
 coronavirus_analysis-Copy1.ipynb
 *.png
